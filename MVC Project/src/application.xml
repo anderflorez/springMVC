@@ -8,8 +8,7 @@
           concentrate on the front end for this course.  -->    
         
     <!--  Service Beans -->    
-    <bean id="bookService" class="com.virtualpairprogrammers.services.BookServiceMockImpl">
-    </bean>
+    <bean id="bookService" class="com.virtualpairprogrammers.services.BookServiceMockImpl" />
 
     <bean id="accountsService" class="com.virtualpairprogrammers.services.AccountsServiceMockImpl"/>
                       

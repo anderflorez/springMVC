@@ -12,8 +12,6 @@
 	
 	<import resource="/application.xml" />
 	
-	<bean name="/viewAllBooks.do" class="com.virtualpairprogrammers.control.ViewAllBooksController">
-		<property name="bookService" ref="bookService" />
-	</bean>
+	<context:component-scan base-package="com.virtualpairprogrammers" />
        
 </beans>
