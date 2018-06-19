@@ -47,7 +47,7 @@ public class CartManagementController
 		//Approach 2 and 3 - Scope the session
 		this.cart.addItem(requiredBook);
 
-		return new ModelAndView("/bookAddedToCart.jsp", "title", requiredBook.getTitle());
+		return new ModelAndView("bookAddedToCart", "title", requiredBook.getTitle());
 	}
 	
 	@RequestMapping("/viewCart")
@@ -62,7 +62,7 @@ public class CartManagementController
 //		return new ModelAndView("/cartContents.jsp", "cart", cart.getAllItems());
 		
 		//Approach 2 and 3 - Scope the session
-		return new ModelAndView("/cartContents.jsp", "cart", this.cart.getAllItems());
+		return new ModelAndView("cartContents", "cart", this.cart.getAllItems());
 	}
 
 }

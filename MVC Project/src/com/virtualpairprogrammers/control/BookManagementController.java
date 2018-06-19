@@ -23,27 +23,27 @@ public class BookManagementController
 	public ModelAndView viewAllBooksPDF()
 	{
 		List<Book> allBooks = bookService.getEntireCatalogue();
-		return new ModelAndView(new BooksReportPDF(), "allBooks", allBooks);
+		return new ModelAndView("bookReportPdf", "allBooks", allBooks);
 	}
 	
 	@RequestMapping("/viewAllBooksExcel")
 	public ModelAndView viewAllBooksExcel()
 	{
 		List<Book> allBooks = bookService.getEntireCatalogue();
-		return new ModelAndView(new BooksReportExcel(), "allBooks", allBooks);
+		return new ModelAndView("bookReportExcel", "allBooks", allBooks);
 	}
 	
 	@RequestMapping("/viewAllBooks")
 	public ModelAndView viewAllBooks()
 	{
 		List<Book> allBooks = bookService.getEntireCatalogue();
-		return new ModelAndView("/displayAllBooks.jsp", "allBooks", allBooks);
+		return new ModelAndView("displayAllBooks", "allBooks", allBooks);
 	}
 	
 	@RequestMapping("/findByAuthor")
 	public ModelAndView findByAuthor(@RequestParam("AUTHOR") String author)
 	{
 		List<Book> books = bookService.getAllBooksByAuthor(author);
-		return new ModelAndView("/displayAllBooks.jsp", "allBooks", books);
+		return new ModelAndView("displayAllBooks", "allBooks", books);
 	}
 }
