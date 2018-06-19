@@ -1,13 +1,25 @@
 package com.virtualpairprogrammers.domain;
 
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Book implements java.io.Serializable
 {
 	private static final long serialVersionUID = 1L;
 	private static int nextId = 1;
 	private int id;
+	
+	@NotEmpty
 	private String isbn;
+	
+	@NotEmpty
 	private String title;
+	
+	@NotEmpty
 	private String author;
+	
+	@Min(value=0)
 	private double price;
 
 	public Book(String isbn, String title, String author, double price) 
@@ -56,5 +68,21 @@ public class Book implements java.io.Serializable
 	public void setId(int id)
 	{
 		this.id = id;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 }

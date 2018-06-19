@@ -7,8 +7,8 @@ import java.util.List;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
-@Scope("session")
+@Component				//This makes the class to be a spring bean - it can be injected to another class
+@Scope("session")		//The shopping cart is session scope - just one shopping cart per session
 public class ShoppingCart implements Serializable
 {
 	private List<Book> shopping = new ArrayList<Book>();
