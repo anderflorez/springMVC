@@ -6,12 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.virtualpairprogrammers.domain.Book;
 import com.virtualpairprogrammers.services.BookService;
-import com.virtualpairprogrammers.views.BooksReportExcel;
-import com.virtualpairprogrammers.views.BooksReportPDF;
 
 @Controller
 public class BookManagementController
@@ -45,5 +44,15 @@ public class BookManagementController
 	{
 		List<Book> books = bookService.getAllBooksByAuthor(author);
 		return new ModelAndView("displayAllBooks", "allBooks", books);
+	}
+	
+	@RequestMapping("/looseSearch")
+	public @ResponseBody List<Book> performLooseSearch(@RequestParam ("CHARS") String chars)
+	{
+		if (chars.length() < 3)
+		{
+			return null;
+		}
+		return bookService.searchBooksByLooseMatch(chars);
 	}
 }
