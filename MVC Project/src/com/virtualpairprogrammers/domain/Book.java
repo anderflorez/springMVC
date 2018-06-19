@@ -1,8 +1,10 @@
 package com.virtualpairprogrammers.domain;
 
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Digits;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.virtualpairprogrammers.validation.ISBN;
 
 public class Book implements java.io.Serializable
 {
@@ -11,6 +13,7 @@ public class Book implements java.io.Serializable
 	private int id;
 	
 	@NotEmpty
+	@ISBN
 	private String isbn;
 	
 	@NotEmpty
@@ -19,7 +22,7 @@ public class Book implements java.io.Serializable
 	@NotEmpty
 	private String author;
 	
-	@Min(value=0)
+	@Digits(integer=3, fraction=2)
 	private double price;
 
 	public Book(String isbn, String title, String author, double price) 
