@@ -10,12 +10,28 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.virtualpairprogrammers.domain.Book;
 import com.virtualpairprogrammers.services.BookService;
+import com.virtualpairprogrammers.views.BooksReportExcel;
+import com.virtualpairprogrammers.views.BooksReportPDF;
 
 @Controller
 public class BookManagementController
 {
 	@Autowired
 	private BookService bookService;
+	
+	@RequestMapping("/viewAllBooksPDF")
+	public ModelAndView viewAllBooksPDF()
+	{
+		List<Book> allBooks = bookService.getEntireCatalogue();
+		return new ModelAndView(new BooksReportPDF(), "allBooks", allBooks);
+	}
+	
+	@RequestMapping("/viewAllBooksExcel")
+	public ModelAndView viewAllBooksExcel()
+	{
+		List<Book> allBooks = bookService.getEntireCatalogue();
+		return new ModelAndView(new BooksReportExcel(), "allBooks", allBooks);
+	}
 	
 	@RequestMapping("/viewAllBooks")
 	public ModelAndView viewAllBooks()
