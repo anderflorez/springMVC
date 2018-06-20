@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Scope("session")		//The shopping cart is session scope - just one shopping cart per session
 public class ShoppingCart implements Serializable
 {
+	private static final long serialVersionUID = 8004394469630957871L;
 	private List<Book> shopping = new ArrayList<Book>();
 
 	public void addItem(Book newItem)

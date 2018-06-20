@@ -9,6 +9,9 @@
 				<h2>${nextBook.title}</h2>
 			</li>
 			</c:forEach>
-			</ul>		
+			</ul>
+			
+	<a href="checkout-flow.do">Click here to checkout</a>
+			
 </body>
 </html>
